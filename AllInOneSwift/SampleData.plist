@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>sampleArray</key>
+	<array>
+		<dict>
+			<key>name</key>
+			<string>Bavani</string>
+			<key>age</key>
+			<string>85</string>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>jeyabalaji</string>
+			<key>age</key>
+			<string>86</string>
+		</dict>
+	</array>
+	<key>sampleDic</key>
+	<dict>
+		<key>first</key>
+		<string>First dic value</string>
+	</dict>
+</dict>
+</plist>
