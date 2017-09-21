@@ -14,6 +14,7 @@
 		33B2057F1F358D8D0029368C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 33B2057E1F358D8D0029368C /* Assets.xcassets */; };
 		33B205821F358D8D0029368C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33B205801F358D8D0029368C /* LaunchScreen.storyboard */; };
 		33B2058A1F358F2B0029368C /* SampleData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 33B205891F358F2B0029368C /* SampleData.plist */; };
+		33F1E54D1F741300002D7FE2 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 33F1E54C1F741300002D7FE2 /* Dev.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		33B205811F358D8D0029368C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33B205831F358D8D0029368C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33B205891F358F2B0029368C /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
+		33F1E54C1F741300002D7FE2 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				33B205831F358D8D0029368C /* Info.plist */,
 				33B2057B1F358D8D0029368C /* AllInOneSwift.xcdatamodeld */,
 				33B205891F358F2B0029368C /* SampleData.plist */,
+				33F1E54C1F741300002D7FE2 /* Dev.xcconfig */,
 			);
 			path = AllInOneSwift;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 			files = (
 				33B205821F358D8D0029368C /* LaunchScreen.storyboard in Resources */,
 				33B2057F1F358D8D0029368C /* Assets.xcassets in Resources */,
+				33F1E54D1F741300002D7FE2 /* Dev.xcconfig in Resources */,
 				33B2058A1F358F2B0029368C /* SampleData.plist in Resources */,
 				33B2057A1F358D8D0029368C /* Main.storyboard in Resources */,
 			);
@@ -312,6 +316,7 @@
 				33B205881F358D8D0029368C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
