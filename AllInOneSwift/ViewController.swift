@@ -11,23 +11,34 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var myData: Array<String> = [];
     var inProgress: Bool = false;
-    
+    var counter: Int = 0;
     @IBOutlet weak var myTable: UITableView!
+    
+    func insertRows() {
+        var indexPaths: Array<IndexPath> = [];
+        for i in 0...10 {
+            indexPaths.append(IndexPath(row: i, section: 0));
+        }
+        myTable.insertRows(at: indexPaths, with: UITableViewRowAnimation.none);
+    }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let actualPosition: CGFloat = scrollView.contentOffset.y;
         let contentHeight: CGFloat = scrollView.contentSize.height - 1000;
         print("actual \(actualPosition) -- content - \(contentHeight)");
-        if (actualPosition < 100) {
+        if (actualPosition < 10 && !inProgress) {
             inProgress = true;
-            _ = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { (timer) in
+            _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
                 if(self.inProgress) {
                     self.inProgress = false;
-                    self.myData.insert("a", at: 0);
-                    self.myData.insert("b", at: 0);
+                    for i in 0...10 {
+                        self.myData.insert("a" + String(describing: i), at: 0);
+                    }
+                    //self.insertRows();
+                    
                     self.myTable.reloadData();
-                    let indexPath = IndexPath(row: 1, section: 0);
-                    self.myTable.scrollToRow(at: indexPath, at: .top, animated: true);
+                    let indexPath = IndexPath(row: 11, section: 0);
+                    self.myTable.scrollToRow(at: indexPath, at: .top, animated: false);
                 }
             }
         }
