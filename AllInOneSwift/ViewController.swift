@@ -17,28 +17,51 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func insertRows() {
         var indexPaths: Array<IndexPath> = [];
         for i in 0...10 {
-            indexPaths.append(IndexPath(row: i, section: 0));
+            //indexPaths.append(IndexPath(row: i, section: 0));
+            self.myData.insert("a" + String(describing: i), at: 0);
+            myTable.insertRows(at: [IndexPath(row: 0, section: 0)], with: UITableViewRowAnimation.none);
         }
-        myTable.insertRows(at: indexPaths, with: UITableViewRowAnimation.none);
+    }
+    func insertLoading() {
+        self.myData.insert("Loading...", at: 0);
+        let indexPath = IndexPath(row: 0, section: 0);
+        myTable.insertRows(at: [indexPath], with: UITableViewRowAnimation.none);
+    }
+    func deleteLoading()  {
+        myData.remove(at: 0);
+        let indexPath = IndexPath(row: 0, section: 0);
+        myTable.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic);
+    }
+    func insertAndReload() {
+        for i in 0...10 {
+            let newElem = "a" + String(describing: i);
+            //self.myData.append(newElem);
+            self.myData.insert(newElem, at: 0);
+            let currentIndexPath = IndexPath(row: 11, section: 0);
+            self.myTable.reloadData();
+            myTable.scrollToRow(at: currentIndexPath, at: UITableViewScrollPosition.top, animated: false);
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let actualPosition: CGFloat = scrollView.contentOffset.y;
-        let contentHeight: CGFloat = scrollView.contentSize.height - 1000;
+        let contentHeight: CGFloat = scrollView.contentSize.height;
         print("actual \(actualPosition) -- content - \(contentHeight)");
         if (actualPosition < 10 && !inProgress) {
             inProgress = true;
+            insertLoading();
             _ = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false) { (timer) in
                 if(self.inProgress) {
                     self.inProgress = false;
-                    for i in 0...10 {
-                        self.myData.insert("a" + String(describing: i), at: 0);
-                    }
+                    //self.myTable.scrollToRow(at: IndexPath(row: 1, section: 0), at: .top, animated: false);
+                    self.deleteLoading();
+                    self.insertAndReload();
+                    
                     //self.insertRows();
                     
-                    self.myTable.reloadData();
-                    let indexPath = IndexPath(row: 11, section: 0);
-                    self.myTable.scrollToRow(at: indexPath, at: .top, animated: false);
+                    //self.myTable.reloadData();
+                    //let indexPath = IndexPath(row: 11, section: 0);
+                    //self.myTable.scrollToRow(at: indexPath, at: .top, animated: false);
                 }
             }
         }
@@ -50,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell")!;
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "myCell")!;
         cell.textLabel?.text = myData[indexPath.row];
         return cell;
     }
