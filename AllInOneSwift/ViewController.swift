@@ -14,6 +14,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var counter: Int = 0;
     @IBOutlet weak var myTable: UITableView!
     
+    @IBAction func btnActUrlConnection(_ sender: UIButton) {
+        let urlVC = UrlViewController();
+        self.present(urlVC, animated: true, completion: nil);
+    }
+
     func insertRows() {
         var indexPaths: Array<IndexPath> = [];
         for i in 0...10 {
