@@ -28,12 +28,31 @@ class UrlViewController: UIViewController {
         task.resume()
     }
     
+    func readPlist() {
+        if let path = Bundle.main.path(forResource: "Servers", ofType: "plist") {
+            
+            //If your plist contain root as Array
+//            if let array = NSArray(contentsOfFile: path) as? [[String: Any]] {
+//
+//            }
+            
+            ////If your plist contain root as Dictionary
+            if let dic = NSDictionary(contentsOfFile: path) as? [String: Any] {
+                print(dic);
+                if let sin = dic["sin"] as? [String: Any] {
+                    print(sin["sit"]!);
+                }
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
         sendUrlRequest();
+        readPlist()
     }
 
     override func didReceiveMemoryWarning() {
