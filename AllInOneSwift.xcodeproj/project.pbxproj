@@ -31,6 +31,7 @@
 		33B205811F358D8D0029368C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		33B205831F358D8D0029368C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33B205891F358F2B0029368C /* SampleData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SampleData.plist; sourceTree = "<group>"; };
+		33B89D95213ED26400EE0323 /* SimpleTextEditor.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SimpleTextEditor.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		33E486BC1FBC838A00E2A3C6 /* UrlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlViewController.swift; sourceTree = "<group>"; };
 		33E486BD1FBC838A00E2A3C6 /* UrlViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UrlViewController.xib; sourceTree = "<group>"; };
 		33F1E54C1F741300002D7FE2 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		33B205731F358D8D0029368C /* AllInOneSwift */ = {
 			isa = PBXGroup;
 			children = (
+				33B89D95213ED26400EE0323 /* SimpleTextEditor.playground */,
 				33B205741F358D8D0029368C /* AppDelegate.swift */,
 				33B205761F358D8D0029368C /* ViewController.swift */,
 				33B205781F358D8D0029368C /* Main.storyboard */,
