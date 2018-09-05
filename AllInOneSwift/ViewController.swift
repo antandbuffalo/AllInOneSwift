@@ -108,9 +108,41 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("something is null");
         }
     }
+    
+    func performOperations() {
+        let ste = SimpleTextEditor();
+        //let noOfOperations = Int(readLine(strippingNewline: true)!)!
+        let noOfOperations = 1;
+        let allOperations = [["1", "abc"], ["3", "3"], ["2", "3"], ["1", "xy"], ["3", "2"], ["4"], ["4"], ["3", "1"]];
+        for i in 0..<allOperations.count {
+            //var stringArray = readLine(strippingNewline: true)!.split {$0 == " "}.map (String.init)
+            var stringArray = allOperations[i];
+            var opType = "", opValue = "";
+            if(stringArray.count == 2) {
+                opType = stringArray[0]
+                opValue = stringArray[1]
+            }
+            else {
+                opType = stringArray[0]
+                opValue = ""
+            }
+            ste.doOperations(operationType: opType, operationValue: opValue);
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        performOperations()
+        
+//        var simpleTextEditor = SimpleTextEditor();
+//        simpleTextEditor.doOperations(operationType: "1", operationValue: "abc");
+//        simpleTextEditor.doOperations(operationType: "3", operationValue: "3");
+//        simpleTextEditor.doOperations(operationType: "2", operationValue: "3");
+//        simpleTextEditor.doOperations(operationType: "1", operationValue: "xy");
+//        simpleTextEditor.doOperations(operationType: "3", operationValue: "2");
+//        simpleTextEditor.doOperations(operationType: "4", operationValue: "2");
+        
         // Do any additional setup after loading the view, typically from a nib.
         myTable.dataSource = self;
         myTable.delegate = self;

@@ -16,34 +16,57 @@ for _ in 0..<noOfOperations {
     
 }
 
-func append1(myStack: inout [String], value: String) {
-    
+func append1(value: String) {
+    var current = "";
+    if let top = myStack.last {
+        current = top;
+    }
+    current.append(value);
+    myStack.append(current);
 }
 
-func delete1(myStack: inout [String]) {
-    
+func delete1(index: Int) {
+    guard var top = myStack.last else {
+        return;
+    }
+    let newIndex = top.index(top.startIndex, offsetBy: index)
+    top.remove(at: newIndex);
+    myStack.append(top);
 }
 
-func print1(myStack: inout [String]) {
-    
+func print1(index: Int) {
+    guard let top = myStack.last else {
+        return;
+    }
+    let newIndex = top.index(top.startIndex, offsetBy: index)
+    print(top[newIndex])
 }
 
-func undo1(myStack: inout [String]) {
-    
+func undo1() {
+    myStack.removeLast();
 }
 
 func doOperations(operationType: String, operationValue: String) {
-    var myStack = [String]()
     if let type = Operation.init(rawValue: Int(operationType)!) {
         switch type {
         case .append:
-            append1(myStack: &myStack, value: operationValue)
+            append1(value: operationValue)
         case .delete:
-            delete1(myStack: &myStack)
+            if let index = Int(operationValue) {
+                delete1(index: index - 1);
+            }
         case .print:
-            print1(myStack: &myStack)
+            if let index = Int(operationValue) {
+                print1(index: index - 1);
+            }
         case .undo:
-            undo1(myStack: &myStack)
+            undo1()
         }
     }
 }
+
+//doOperations(operationType: "1", operationValue: "abc");
+//doOperations(operationType: "3", operationValue: "3");
+//doOperations(operationType: "2", operationValue: "3");
+//doOperations(operationType: "1", operationValue: "xy");
+//doOperations(operationType: "3", operationValue: "2");
